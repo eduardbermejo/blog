@@ -1,1 +1,1 @@
-Sitemap: https://eduardbermejo.github.io/blog/sitemap.xml
+Sitemap: https://eduardbermejo.github.io/sitemap.xml
