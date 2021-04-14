@@ -13,7 +13,7 @@ metadata_key2: metadata_value2
 In this post, I will be going through the forward algorithm and the usages of this algorithm in Hidden Markov Models.
 In the image below we can see the probabilistic graphical model depicting a hidden markov model. The $z_k$ correspond to the unobserved random variables called hidden or latent variables and $x_k$ correspont to the observed ones.
 
-<img src="/images/HMM.png" style="border:0;" title="Hidden Markov Model">
+<img src="images/HMM.png" style="border:0;" title="Hidden Markov Model">
 
 
 Our goal is to compute: $p(z_k,x_{1:k})$ where $x_{1:k}=(x_1,...,x_k)$
