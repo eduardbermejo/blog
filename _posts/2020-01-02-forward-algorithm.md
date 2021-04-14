@@ -1,3 +1,11 @@
+---
+toc: true
+layout: post
+description: A minimal example of using markdown with fastpages.
+categories: [markdown]
+title: Forward algorithm for HMM
+---
+
 # Forward algorithm for HMM
 
 In this post, I will be going through the forward algorithm and the usages of this algorithm in Hidden Markov Models.
