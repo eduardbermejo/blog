@@ -1,9 +1,14 @@
 ---
-toc: true
+title: "My Title"
+description: "Awesome description"
 layout: post
-description: A minimal example of using markdown with fastpages.
-categories: [markdown]
-title: Forward algorithm for HMM
+toc: false
+comments: true
+hide: false
+search_exclude: true
+categories: [fastpages, jupyter]
+metadata_key1: metadata_value1
+metadata_key2: metadata_value2
 ---
 
 # Forward algorithm for HMM
