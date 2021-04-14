@@ -1,17 +1,14 @@
 ---
-title: "My Title"
-description: "Awesome description"
+title: "Forward algorithm for HMM"
 layout: post
 toc: false
 comments: true
 hide: false
 search_exclude: true
-categories: [fastpages, jupyter]
 metadata_key1: metadata_value1
 metadata_key2: metadata_value2
 ---
 
-# Forward algorithm for HMM
 
 In this post, I will be going through the forward algorithm and the usages of this algorithm in Hidden Markov Models.
 In the image below we can see the probabilistic graphical model depicting a hidden markov model. The $z_k$ correspond to the unobserved random variables called hidden or latent variables and $x_k$ correspont to the observed ones.
