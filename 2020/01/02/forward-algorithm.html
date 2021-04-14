@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Forward algorithm for HMM | fastpages</title>
+<title>Forward algorithm for HMM | Eduard Bermejo</title>
 <meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Forward algorithm for HMM" />
 <meta property="og:locale" content="en_US" />
@@ -12,13 +12,13 @@
 <meta property="og:description" content="In this post, I will be going through the forward algorithm and the usages of this algorithm in Hidden Markov Models. In the image below we can see the probabilistic graphical model depicting a hidden markov model. The $z_k$ correspond to the unobserved random variables called hidden or latent variables and $x_k$ correspont to the observed ones." />
 <link rel="canonical" href="https://eduardbermejo.github.io/blog/2020/01/02/forward-algorithm.html" />
 <meta property="og:url" content="https://eduardbermejo.github.io/blog/2020/01/02/forward-algorithm.html" />
-<meta property="og:site_name" content="fastpages" />
+<meta property="og:site_name" content="Eduard Bermejo" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-01-02T00:00:00-06:00" />
 <script type="application/ld+json">
 {"url":"https://eduardbermejo.github.io/blog/2020/01/02/forward-algorithm.html","@type":"BlogPosting","headline":"Forward algorithm for HMM","dateModified":"2020-01-02T00:00:00-06:00","datePublished":"2020-01-02T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://eduardbermejo.github.io/blog/2020/01/02/forward-algorithm.html"},"description":"In this post, I will be going through the forward algorithm and the usages of this algorithm in Hidden Markov Models. In the image below we can see the probabilistic graphical model depicting a hidden markov model. The $z_k$ correspond to the unobserved random variables called hidden or latent variables and $x_k$ correspont to the observed ones.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://eduardbermejo.github.io/blog/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://eduardbermejo.github.io/blog/feed.xml" title="Eduard Bermejo" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
@@ -69,7 +69,7 @@ window.onload = wrap_img;
 </head>
 <body><header class="site-header">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">fastpages</a><nav class="site-nav">
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Eduard Bermejo</a><nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
         <label for="nav-trigger">
           <span class="menu-icon">
@@ -168,11 +168,11 @@ where $p(z_1)$ is the initial distribution.</p>
         </p>
       </div>
       <div class="footer-col">
-        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+        <p>Some data science entries</p>
       </div>
     </div>
 
-    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/eduardbermejo" title="eduardbermejo"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
 </div>
 
   </div>
