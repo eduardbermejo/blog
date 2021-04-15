@@ -128,7 +128,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In this post, I am going to write about Shannon's information, entropy, cross-entropy and the Kullback-Leibler divergence. With the last two concepts being heavily used in machine learning
 I think it is nice to have a good understanding of the meaning and relationship of these terms.</p>
-<p>So to try to explain these concepts I would like to first post a question/exercice:</p>
+<p>So to try to explain these concepts I would like to first post a question/exercise:</p>
 <p>Suppose we have 4 letters A, B, C and D in some alphabet we will use to communicate between each other through some channel. I tell you that I will be sending you
 a messsage every morning. This message will have no meaning, it will be just a concatenation of 2 out of these 4 letters picked randomly with equal probability.</p>
 <p>Let's generate some messages:</p>
@@ -177,16 +177,16 @@ a messsage every morning. This message will have no meaning, it will be just a c
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([[&#39;B&#39;, &#39;D&#39;],
-       [&#39;A&#39;, &#39;B&#39;],
-       [&#39;A&#39;, &#39;B&#39;],
-       [&#39;B&#39;, &#39;B&#39;],
-       [&#39;B&#39;, &#39;C&#39;],
-       [&#39;D&#39;, &#39;C&#39;],
+<pre>array([[&#39;C&#39;, &#39;B&#39;],
+       [&#39;B&#39;, &#39;D&#39;],
+       [&#39;C&#39;, &#39;C&#39;],
+       [&#39;C&#39;, &#39;B&#39;],
+       [&#39;A&#39;, &#39;A&#39;],
+       [&#39;C&#39;, &#39;A&#39;],
+       [&#39;C&#39;, &#39;A&#39;],
        [&#39;D&#39;, &#39;D&#39;],
-       [&#39;D&#39;, &#39;A&#39;],
-       [&#39;B&#39;, &#39;C&#39;],
-       [&#39;A&#39;, &#39;B&#39;]], dtype=&#39;&lt;U1&#39;)</pre>
+       [&#39;A&#39;, &#39;A&#39;],
+       [&#39;C&#39;, &#39;D&#39;]], dtype=&#39;&lt;U1&#39;)</pre>
 </div>
 
 </div>
@@ -202,12 +202,12 @@ a messsage every morning. This message will have no meaning, it will be just a c
 <p>So for 10 consecutive days I send you one of these messages every day. So far we have talked about the message but not about the channel we 
 use to transmit it. So let me tell you that this channel will be digital meaning we will use values of 1 or 0 to encode our message.</p>
 <p>The first question is: how many bits do I need to encode my message? Well, we know that if I have 4 letters, and each letter is equally likely, 
-I am gonna need $log_2(4)=2$ bits to encode each letter. And since we know that each letter is independent of each otherwe will need 2*2 bits to encode
+I am gonna need $\small log_2(4)=2$ bits to encode each letter. And since we know that each letter is independent of each otherwe will need 2*2 bits to encode
 the message I'm sending to you every day.
 The key thing to note here is that these 2 bits required for each letter is actually the information each letter in the message is carrying.
 Bear with me.</p>
 <p>Let's look at another example, a more interesting one: Our variables will be independent as in the previous example but this time the 
-probability mass function won't be uniform. Our variables will follow this distribution $p=(0.7, 0.1, 0.1, 0.1)$. Let's generate the 10 messages again:</p>
+probability mass function won't be uniform. Our variables will follow this distribution $\small p=(0.7, 0.1, 0.1, 0.1)$. Let's generate the 10 messages again:</p>
 
 </div>
 </div>
@@ -236,15 +236,15 @@ probability mass function won't be uniform. Our variables will follow this distr
 
 <div class="output_text output_subarea output_execute_result">
 <pre>array([[&#39;A&#39;, &#39;A&#39;],
-       [&#39;B&#39;, &#39;B&#39;],
-       [&#39;D&#39;, &#39;C&#39;],
-       [&#39;A&#39;, &#39;D&#39;],
-       [&#39;B&#39;, &#39;A&#39;],
        [&#39;A&#39;, &#39;A&#39;],
-       [&#39;C&#39;, &#39;C&#39;],
+       [&#39;A&#39;, &#39;A&#39;],
+       [&#39;A&#39;, &#39;A&#39;],
+       [&#39;C&#39;, &#39;D&#39;],
        [&#39;A&#39;, &#39;B&#39;],
-       [&#39;D&#39;, &#39;A&#39;],
-       [&#39;B&#39;, &#39;A&#39;]], dtype=&#39;&lt;U1&#39;)</pre>
+       [&#39;A&#39;, &#39;A&#39;],
+       [&#39;A&#39;, &#39;A&#39;],
+       [&#39;A&#39;, &#39;A&#39;],
+       [&#39;C&#39;, &#39;A&#39;]], dtype=&#39;&lt;U1&#39;)</pre>
 </div>
 
 </div>
@@ -321,24 +321,24 @@ we would be using again 2 bits for each letter. But if you think carefully, we k
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>So we have managed to make our encoding more efficient by using the distribution of our random process of sending messages. Going back to the information concept, here we would have:</p>
-<p>$-log_2(0.7)=0.51$ bits for A,</p>
-<p>$-log_2(0.1)=3.32$ bits for B,</p>
-<p>$-log_2(0.1)=3.32$ bits for C,</p>
-<p>$-log_2(0.1)=3.32$ bits for D,</p>
+<p>$\small -log_2(0.7)=0.51$ bits for A,</p>
+<p>$\small -log_2(0.1)=3.32$ bits for B,</p>
+<p>$\small -log_2(0.1)=3.32$ bits for C,</p>
+<p>$\small -log_2(0.1)=3.32$ bits for D,</p>
 <p>Wait, where does this formula come from? Well let me tell you that the way we compute information is this:</p>
 $$
 \large I_X(x)=-log_2(p(x))
 $$<p>We could actually use another base, but let's stick to base two and continue talking about bits. Try to think of information as the surprise you have after receiving the message. So A wouldn't surprise you that much, but B, C and D would, therefore they carry more information. The other way to think about it is the number of bits we need to represent each value in the most optimal way.</p>
 <p>So, as we computed previously we would need 0.51 bits to encode A, and 3.32 bits to encode the rest of the letters. Going back to the previous example, let us try to compute information in a different way to make it more intuitive (hopefully):</p>
-<p>Let's transform our probabilities in frequency counts like so: We now will have in our alphabet 7 As, 1 B, 1 C and 1 D. We then have now 10 letters. So what is the amount of bits we need to encode one letter? It is actually $log_2(10)=3.32$. So the letters only appearing once will need this amount of bits to be encoded. As you can see it is the same result we got above. How about A? 
-Well, we know that A is 7 times more likely than B, C, or D. So the way to compute it is $log_2(\frac{10}{7})=0.51$. Intuitively, out of the ten buckets, A is filling 7.</p>
+<p>Let's transform our probabilities in frequency counts like so: We now will have in our alphabet 7 As, 1 B, 1 C and 1 D. We then have now 10 letters. So what is the amount of bits we need to encode one letter? It is actually $\small log_2(10)=3.32$. So the letters only appearing once will need this amount of bits to be encoded. As you can see it is the same result we got above. How about A? 
+Well, we know that A is 7 times more likely than B, C, or D. So the way to compute it is $\small log_2(\frac{10}{7})=0.51$. Intuitively, out of the ten buckets, A is filling 7.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As you can see, for the case of B, C and D we used $log_2{10}$ which is actually $-log_2\frac{1}{10}$ and the same goes for A which becomes $-log_2(\frac{7}{10})$ which leads us to the formal definition presented before: $I_X(x)=-log_2(p(x))$. This should solve the first "bear with me".</p>
+<p>As you can see, for the case of B, C and D we used $\small log_2{10}$ which is actually $\small -log_2\frac{1}{10}$ and the same goes for A which becomes $\small -log_2(\frac{7}{10})$ which leads us to the formal definition presented before: $\small I_X(x)=-log_2(p(x))$. This should solve the first "bear with me".</p>
 
 </div>
 </div>
@@ -361,6 +361,16 @@ $$
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;The entropy of our source or the expected information in our message is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">p</span><span class="p">)))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -399,10 +409,10 @@ $$
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>When we tried to use our improved encoding, we were assuming a probability mass function for our source:</p>
-<p>$P(A)=2^{-1}$</p>
-<p>$P(B)=2^{-2}$</p>
-<p>$P(C)=2^{-3}$</p>
-<p>$P(D)=2^{-3}$</p>
+<p>$\small P(A)=2^{-1}$</p>
+<p>$\small P(B)=2^{-2}$</p>
+<p>$\small P(C)=2^{-3}$</p>
+<p>$\small P(D)=2^{-3}$</p>
 
 </div>
 </div>
@@ -410,6 +420,17 @@ $$
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;This the probability distribution </span><span class="se">\</span>
+<span class="s2">we were assuming by using our improved encoding: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">num_bits</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -432,7 +453,7 @@ $$
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>So when we instead of plugging in the source distribution in the information term of the entropy fromula use another distribution, we are getting what we call cross-entropy. And this gives us the expected length in bits of our source messages in each letter. The idea is that we know the distribution of our alphabet and the encoding or pmf we are using to transmit it. So the formula for the cross-entropy $H(p,q)$ is the same as the one for the entropy, only that we use now two different probability distributions:</p>
+<p>So when we instead of plugging in the source distribution in the information term of the entropy fromula use another distribution, we are getting what we call cross-entropy. And this gives us the expected length in bits of our source messages in each letter. The idea is that we know the distribution of our alphabet and the encoding or pmf we are using to transmit it. So the formula for the cross-entropy $\small H(p,q)$ is the same as the one for the entropy, only that we use now two different probability distributions:</p>
 $$
 \large H(p,q)=-\sum_i p(x_i)log(q(x_i))
 $$
@@ -447,10 +468,11 @@ $$
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>So we now know the entropy or expected information in each of our letter's message, and the cross-entropy or expected length of each letter in our message. And this difference here between the optimal encoding or information and the expected length of our encoding is what is called kullback-Leibler divergence:</p>
+<p>So we now know the entropy or expected information in each of our letter's message, and the cross-entropy or expected length of each letter in our message. And this difference here between the optimal encoding or information and the expected length of our encoding is what is called kullback-Leibler divergence:
 $$
-\large D_{KL}(p||q)=H(p,q)-H(p)=-\sum_i p(x_i)log(q(x_i))+\sum_i p(x_i)log(p(x_i))=\sum_i p(x_i)log(\frac{p(x_i)}{q(x_i})
-$$
+\large D_{KL}(p||q)=H(p,q)-H(p)=-\sum_i p(x_i)log(q(x_i))+\sum_i p(x_i)log(p(x_i))=\sum_i p(x_i)log(\frac{p(x_i)}{q(x_i)})
+$$</p>
+
 </div>
 </div>
 </div>
