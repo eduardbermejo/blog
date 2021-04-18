@@ -1674,13 +1674,12 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>So from this definition the conditional distribution of $\small y$ can be derived as 
 $$
-\begin{cases}
-P(y = k|x) &amp; = P(\theta_{k-1} \leq y* \leq \theta_k|\bf{x})\\
+\begin{aligned}
+P( = k|x) &amp; = P(\theta_{k-1} \leq y* \leq \theta_k|\bf{x})\\
             &amp; = P(\theta_{k-1} \leq \bf{w \cdot x + \epsilon} \leq \theta_k)\\
             &amp; = P(\theta_{k-1} - \bf{w \cdot x} \leq \epsilon  \leq \theta_k - \bf{w \cdot x})\\
             &amp; =  \phi(\theta_{k} - \bf{w \cdot x}) - \phi(\theta_{k-1} - \bf{w \cdot x})
-\end{cases}
-$$</p>
+\end{aligned}</p>
 
 </div>
 </div>
