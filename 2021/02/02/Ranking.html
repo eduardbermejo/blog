@@ -1730,11 +1730,12 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>From this definition the conditional distribution of $\small y$ can be derived as 
+$$
+P(y= k|{\bf x})  = P(\theta_{k-1} \leq y* \leq \theta_k | {\bf x})\\
+          = P(\theta_{k-1} \leq {\bf w \cdot x + \epsilon} \leq \theta_k)\\
+            = P(\theta_{k-1} - {\bf w \cdot x} \leq \epsilon  \leq \theta_k - {\bf w \cdot x})\\
+             =  \phi(\theta_{k} - {\bf w \cdot x}) - \phi(\theta_{k-1} - {\bf w \cdot x})
 $$</p>
-<p>P(y= k|{\bf x})  = P(\theta_{k-1} \leq y* \leq \theta<em>k | {\bf x})\
-          = P(\theta</em>{k-1} \leq {\bf w \cdot x + \epsilon} \leq \theta<em>k)\
-            = P(\theta</em>{k-1} - {\bf w \cdot x} \leq \epsilon  \leq \theta<em>k - {\bf w \cdot x})\
-             =  \phi(\theta</em>{k} - {\bf w \cdot x}) - \phi(\theta_{k-1} - {\bf w \cdot x})</p>
 
 </div>
 </div>
