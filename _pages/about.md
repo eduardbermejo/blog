@@ -4,8 +4,6 @@ title: About Me
 permalink: /about/
 ---
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+My name is Eduard Bermejo and i work as a data scientist in the retail sector. My passions are mathematics, computer graphics, surfing and reading fantasy and sci-fi books.
 
 
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
